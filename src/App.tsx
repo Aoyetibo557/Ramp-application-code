@@ -81,8 +81,10 @@ export function App() {
 
         <div className="RampGrid">
           <Transactions transactions={transactions} />
-
-          {transactions !== null && (
+          {/* 
+            Solved the issue by adding a check for the transactions next page, if it is undefined, then we don't show the button
+          */}
+          {transactions !== null && paginatedTransactions?.nextPage && (
             <button
               className="RampButton"
               disabled={paginatedTransactionsUtils.loading}
